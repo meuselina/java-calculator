@@ -6,6 +6,9 @@ import java.util.Scanner;
  */
 public class Taschenrechner {
 
+    private static final java.util.List<String> OPERATOREN =
+            java.util.Arrays.asList("+", "-", "*", "x", "/", "%", "^");
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -30,6 +33,11 @@ public class Taschenrechner {
 
             System.out.print("Operator: ");
             String operator = scanner.next();
+            // Operator sofort pruefen, nicht erst nach der zweiten Zahl
+            if (!istOperator(operator)) {
+                System.out.println("Unbekannter Operator: " + operator + ". Erlaubt sind + - * / % ^\n");
+                continue;
+            }
 
             System.out.print("Zweite Zahl: ");
             double b;
@@ -80,11 +88,23 @@ public class Taschenrechner {
         }
     }
 
-    /** Ganze Zahlen ohne ".0" ausgeben. */
-    private static String formatiere(double wert) {
-        if (wert == Math.floor(wert) && !Double.isInfinite(wert)) {
+    /**
+     * Ganze Zahlen ohne ".0" ausgeben.
+     * Nur bei Zahlen, die sicher in einen long passen: vorher wurde z. B.
+     * 2 ^ 100 faelschlich als 9223372036854775807 (groesster long) angezeigt.
+     */
+    static String formatiere(double wert) {
+        if (Double.isNaN(wert)) {
+            return "nicht definiert";
+        }
+        if (wert == Math.floor(wert) && Math.abs(wert) < 1e15) {
             return String.valueOf((long) wert);
         }
         return String.valueOf(wert);
+    }
+
+    /** Prueft, ob ein Operator unterstuetzt wird. */
+    static boolean istOperator(String operator) {
+        return OPERATOREN.contains(operator);
     }
 }

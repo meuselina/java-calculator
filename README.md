@@ -7,13 +7,16 @@ A simple console calculator in Java.
 - Operators: `+` `-` `*` `/` `%` and power `^`
 - Accepts both `3.5` and `3,5` as decimal input
 - Handles invalid input and division by zero without crashing
+- Checks the operator right away, before asking for the second number
+- Very large results are shown correctly (e.g. `2 ^ 100`)
 - Type `q` to quit
 
 ## Usage
 
 ```bash
-javac Taschenrechner.java
-java Taschenrechner
+javac *.java
+java Taschenrechner       # calculator
+java TaschenrechnerTest   # 15 automated tests
 ```
 
 ```
