@@ -24,4 +24,5 @@ jobs:
         run: java CalculatorTest
 
       - name: Smoke test the calculator
-        run: printf '2\n^\n10\nq\n' | java Calculator | grep "Result: 2 ^ 10 = 1024"
+        run: |
+          printf '2\n^\n10\nq\n' | java Calculator | grep "Result: 2 ^ 10 = 1024"
