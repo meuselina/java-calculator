@@ -1,0 +1,27 @@
+name: Build and test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Compile
+        run: javac *.java
+
+      - name: Run the 15 tests
+        run: java CalculatorTest
+
+      - name: Smoke test the calculator
+        run: printf '2\n^\n10\nq\n' | java Calculator | grep "Result: 2 ^ 10 = 1024"
