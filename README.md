@@ -5,6 +5,7 @@
 A simple, robust console calculator in Java.
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+[![Build and test](https://github.com/meuselina/java-calculator/actions/workflows/build.yml/badge.svg)](https://github.com/meuselina/java-calculator/actions/workflows/build.yml)
 ![Tests](https://img.shields.io/badge/tests-15%20passing-22c55e?style=for-the-badge)
 ![No dependencies](https://img.shields.io/badge/dependencies-none-8b5cf6?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-0ea5e9?style=for-the-badge)
