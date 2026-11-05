@@ -20,7 +20,7 @@ jobs:
       - name: Compile
         run: javac *.java
 
-      - name: Run the 15 tests
+      - name: Run the tests
         run: java CalculatorTest
 
       - name: Smoke test the calculator
