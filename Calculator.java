@@ -89,16 +89,21 @@ public class Calculator {
     }
 
     /**
-     * Prints whole numbers without ".0".
-     * Only for numbers that safely fit into a long: before this check,
-     * 2 ^ 100 was wrongly shown as 9223372036854775807 (the largest long).
+     * Formats a result for display.
+     * Whole numbers are printed in full, without ".0" and without
+     * scientific notation, so 2 ^ 100 shows all 31 digits instead of
+     * 1.2676506002282294E30. Results beyond the range of a double are
+     * reported as "too large".
      */
     static String format(double value) {
         if (Double.isNaN(value)) {
             return "undefined";
         }
-        if (value == Math.floor(value) && Math.abs(value) < 1e15) {
-            return String.valueOf((long) value);
+        if (Double.isInfinite(value)) {
+            return value > 0 ? "too large" : "too small";
+        }
+        if (value == Math.floor(value)) {
+            return new java.math.BigDecimal(value).toPlainString();
         }
         return String.valueOf(value);
     }

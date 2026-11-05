@@ -39,7 +39,10 @@ public class CalculatorTest {
         check("Division", "2.5", compute(5, "/", 2));
         check("Modulo", "1", compute(7, "%", 3));
         check("Power", "1024", compute(2, "^", 10));
-        check("Large power", "1.2676506002282294E30", compute(2, "^", 100));
+        check("Large power", "1267650600228229401496703205376", compute(2, "^", 100));
+        check("Large negative result", "-1000000000000000000000", compute(-10, "^", 21));
+        check("Overflow", "too large", compute(10, "^", 400));
+        check("Negative overflow", "too small", compute(-10, "^", 401));
         check("Negative exponent", "0.125", compute(2, "^", -3));
         check("Undefined result", "undefined", compute(-8, "^", 0.5));
         check("Division by zero", "ArithmeticException", exceptionOf(1, "/", 0));
