@@ -6,7 +6,7 @@ A simple, robust console calculator in Java.
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 [![Build and test](https://github.com/meuselina/java-calculator/actions/workflows/build.yml/badge.svg)](https://github.com/meuselina/java-calculator/actions/workflows/build.yml)
-![Tests](https://img.shields.io/badge/tests-15%20passing-22c55e?style=for-the-badge)
+![Tests](https://img.shields.io/badge/tests-18%20passing-22c55e?style=for-the-badge)
 ![No dependencies](https://img.shields.io/badge/dependencies-none-8b5cf6?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-0ea5e9?style=for-the-badge)
 
@@ -20,7 +20,7 @@ A simple, robust console calculator in Java.
 - Supports both decimal separators: `3.5` and `3,5` are both accepted
 - Handles invalid input and division by zero without crashing
 - Checks the operator right away, before asking for the second number
-- Very large results are handled (e.g. `2 ^ 100`)
+- Very large results are shown in full: `2 ^ 100 = 1267650600228229401496703205376`. Results beyond the range of a `double` show "too large"
 - Type `q` to quit
 
 ## Quick start
@@ -33,7 +33,7 @@ cd java-calculator
 
 javac *.java
 java Calculator       # calculator
-java CalculatorTest   # 15 automated tests
+java CalculatorTest   # 18 automated tests
 ```
 
 ## Example session
@@ -64,7 +64,7 @@ Goodbye.
 
 ```
 $ java CalculatorTest
-15 tests passed, 0 failed.
+18 tests passed, 0 failed.
 ```
 
 ## Files
@@ -72,7 +72,7 @@ $ java CalculatorTest
 | File | Purpose |
 |---|---|
 | `Calculator.java` | Input loop, validation and the calculation itself |
-| `CalculatorTest.java` | 15 automated tests, no test framework needed |
+| `CalculatorTest.java` | 18 automated tests, no test framework needed |
 
 ## Built with
 
